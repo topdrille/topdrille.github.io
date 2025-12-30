@@ -1,11 +1,25 @@
-const originalText = "I am a software engineering student passionate about programming, problem-solving, and building useful applications.";
-const newText = "I enjoy learning new technologies and building real-world projects.";
+const text = "Hi, I am Akinsola Isaac.";
+const speed = 120;
 
-function changeText() {
-    const element = document.getElementById("about-text");
-    if (element.innerText === originalText) {
-        element.innerText = newText;
-    } else {
-        element.innerText = originalText;
-    }
+let index = 0;
+const typingElement = document.getElementById("typing-text");
+
+function typeText() {
+  if (index < text.length) {
+    typingElement.textContent += text.charAt(index);
+    index++;
+    setTimeout(typeText, speed);
+  }
 }
+
+window.onload = typeText;
+
+// Hamburger menu toggle
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+
+hamburger.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+});
+
+
